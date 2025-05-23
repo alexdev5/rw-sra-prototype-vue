@@ -1,24 +1,41 @@
 <template>
-    <button class="app-btn" :class="classes">
+    <component
+        :is="component"
+        class="app-btn"
+        :class="classes"
+        :to="to ? to : {}"
+    >
         <slot />
-    </button>
+    </component>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
+import type { RouteLocationRaw } from 'vue-router'
 
 const props = withDefaults(
     defineProps<{
         size?: 'xl' | 'md'
         outlined?: boolean
+        to?: RouteLocationRaw
+        url?: string
     }>(),
     {
         size: 'md',
     }
 )
+
+const attrs = useAttrs()
+
+const component = computed(() => {
+    if (props.to) return 'router-link'
+    if (props.url) return 'a'
+    return 'button'
+})
+
 const classes = computed(() => ({
     ['size-' + props.size]: true,
-    ['outlined']: props.outlined,
+    outlined: props.outlined,
 }))
 </script>
 
@@ -29,6 +46,10 @@ const classes = computed(() => ({
     min-width: 150px;
     color: #fff;
     border: 1px solid var(--app-color-p-40);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:not(.size-xl) {
         block-size: 40px;

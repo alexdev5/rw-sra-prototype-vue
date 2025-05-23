@@ -1,11 +1,15 @@
 <template>
-    <div class="app-logo">
-        <div><span>W</span>arehouse</div>
-        <div><span>R</span>efrigerator</div>
-    </div>
+    <RouterLink :to="{ name: RouteName.Home }">
+        <div class="app-logo">
+            <div><span>W</span>arehouse</div>
+            <div><span>R</span>efrigerator</div>
+        </div>
+    </RouterLink>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { RouteName } from '@/router'
+</script>
 
 <style lang="scss">
 .app-logo {
