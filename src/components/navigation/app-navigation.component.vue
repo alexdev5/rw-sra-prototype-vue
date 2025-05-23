@@ -1,55 +1,74 @@
 <template>
     <nav class="nav-menu">
-        <RouterLink
-            v-for="route in routes"
-            :to="{ name: route.name }"
-            class="nav-menu-item"
-        >
-            {{ route.label }}
-        </RouterLink>
+        <div class="app-container">
+            <AppLogo />
+
+            <div class="nav-menu-links">
+                <template v-for="route in routes">
+                    <RouterLink
+                        :to="{ name: route.name }"
+                        class="nav-menu-item"
+                        v-if="!route.hidden"
+                    >
+                        {{ route.label }}
+                    </RouterLink>
+                </template>
+
+                <a href="https://github.com/alexdev5" target="_blank"
+                    >github.com</a
+                >
+            </div>
+        </div>
     </nav>
 </template>
 
 <script lang="ts" setup>
+import AppLogo from '@/components/layout/logo.component.vue'
 import { RouteName } from '@/router'
+import { computed } from 'vue'
 
-const routes = [{ name: RouteName.Work_3, label: 'Практикум 3' }]
+const routes = computed(() => {
+    return [
+        { name: RouteName.Page_3, label: 'Користувачеві' },
+        { name: RouteName.Page_2, label: 'Про сервіс' },
+        { name: RouteName.Page_1, label: 'Контикти' },
+    ]
+})
 </script>
 
 <style lang="scss">
 @use '@/styles/utils/media' as *;
 
 .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    padding-block: 8px;
 
     a {
         text-decoration: none;
     }
+
+    .app-container {
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .nav-menu-links {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
 }
 
 .nav-menu-item {
-    border: 1px solid var(--app-color-p-40);
-    padding: 8px 16px;
-    border-radius: 10px;
     transition: all 0.2s linear;
-    background: var(--app-color-secondary);
-    font-size: 0.8rem;
-    width: 100%;
+    font-size: 1rem;
 
     &:hover,
     &.router-link-active {
-        background-color: var(--app-color-p-40);
-        color: var(--app-color-secondary);
-    }
-
-    @include mobile-s {
-        width: auto;
-    }
-
-    @include mobile {
-        font-size: 0.95rem;
+        text-decoration: underline;
+        color: var(--app-color-p-40);
     }
 }
 </style>

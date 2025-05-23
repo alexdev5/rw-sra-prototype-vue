@@ -1,8 +1,9 @@
 <template>
     <header>
         <div class="header-actions">
-            <p>АІС склад-холодильник</p>
-            <a href="https://github.com/alexdev5" target="_blank">github.com</a>
+            <div class="app-container">
+                <p>АІС склад-холодильник для зберігання продуктів</p>
+            </div>
         </div>
 
         <AppNavigation />
@@ -11,8 +12,6 @@
 
 <script lang="ts" setup>
 import AppNavigation from './app-navigation.component.vue'
-
-import { RouteName } from '@/router'
 </script>
 
 <style lang="scss">
@@ -20,6 +19,7 @@ import { RouteName } from '@/router'
 
 header {
     position: relative;
+    border-bottom: 1px solid #e0e0e0;
 
     .header-title {
         font-size: 1rem;
@@ -29,16 +29,11 @@ header {
         }
     }
 
-    .nav-menu {
-        margin-block-start: 16px;
-    }
-
     .header-actions {
-        background: #0a64f1;
+        background: var(--app-color-p-40);
         top: 0;
-        padding: 20px 0 21px;
-        display: flex;
-        justify-content: space-between;
+        padding-block: 8px;
+        text-align: center;
         color: white;
 
         p {
