@@ -7,7 +7,7 @@ export const useAppStore = defineStore('app', () => {
     const router = useRouter()
 
     const state = reactive({
-        isAuth: true,
+        isAuth: false,
     })
 
     function toggleAuth() {
