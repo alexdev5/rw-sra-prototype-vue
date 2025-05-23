@@ -4,6 +4,7 @@
         class="app-btn"
         :class="classes"
         :to="to ? to : {}"
+        :disabled="disabled"
     >
         <slot />
     </component>
@@ -19,6 +20,7 @@ const props = withDefaults(
         outlined?: boolean
         to?: RouteLocationRaw
         url?: string
+        disabled?: boolean
     }>(),
     {
         size: 'md',
@@ -33,6 +35,7 @@ const component = computed(() => {
 
 const classes = computed(() => ({
     ['size-' + props.size]: true,
+    disabled: props.disabled,
     outlined: props.outlined,
 }))
 </script>
@@ -79,6 +82,12 @@ const classes = computed(() => ({
         block-size: 32px;
         padding-inline: 16px;
         font-size: 0.9rem;
+    }
+
+    &.disabled {
+        background: #c0c0c0;
+        border-color: #c0c0c0;
+        pointer-events: none;
     }
 }
 </style>

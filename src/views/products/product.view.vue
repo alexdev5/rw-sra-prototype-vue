@@ -53,7 +53,10 @@
 
                 <div class="grid gap-32 mt-24">
                     <textarea v-model="commentModel"></textarea>
-                    <AppBtn size="xl" @click="addComment()"
+                    <AppBtn
+                        size="xl"
+                        @click="addComment()"
+                        :disabled="!commentModel"
                         >Додати коментар
                     </AppBtn>
                 </div>
@@ -87,7 +90,7 @@ const comments = computed(() => {
 const commentModel = ref('')
 
 function addComment() {
-    if (!product.value?.id) return
+    if (!product.value?.id || !commentModel.value) return
 
     productsStore.comments.push({
         productId: product.value.id,
