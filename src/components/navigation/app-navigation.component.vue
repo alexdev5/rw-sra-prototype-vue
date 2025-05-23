@@ -15,7 +15,7 @@
 
                 <div class="delimiter-vertical"></div>
 
-                <AppBtn size="sm" outlined @click="store.toggleLogin()">
+                <AppBtn size="sm" outlined @click="store.toggleAuth()">
                     {{ store.state.isAuth ? 'Logout' : 'Login' }}
                 </AppBtn>
 

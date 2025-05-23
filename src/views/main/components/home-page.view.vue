@@ -13,7 +13,9 @@
                     </p>
 
                     <div class="flex gap-32">
-                        <AppBtn size="xl">Авторизація</AppBtn>
+                        <AppBtn size="xl" @click="store.toggleAuth()"
+                            >Авторизація
+                        </AppBtn>
                         <AppBtn
                             size="xl"
                             outlined
@@ -22,7 +24,7 @@
                         </AppBtn>
                     </div>
                 </div>
-                <AppImagePlaceholder>Logo</AppImagePlaceholder>
+                <AppImagePlaceholder>Home page</AppImagePlaceholder>
             </div>
         </div>
 
@@ -112,42 +114,4 @@ import { useAppStore } from '@/app.store.ts'
 const store = useAppStore()
 </script>
 
-<style lang="scss">
-.home-page {
-    .description {
-        font-size: 18px;
-    }
-
-    .app-container {
-        > .flex {
-            > div {
-                width: 50%;
-            }
-        }
-
-        + .app-container {
-            margin-block: 60px;
-        }
-    }
-
-    section {
-        padding-block: 24px 32px;
-        margin-block: 60px;
-    }
-
-    .our-principe {
-        background: #dfe9f1;
-    }
-}
-
-.app-card-wrapper {
-    grid-template-columns: repeat(auto-fit, 400px);
-
-    .app-card {
-        background: #fff;
-        padding: 20px;
-        border: 1px solid #e0e0e0;
-        border-radius: 6px;
-    }
-}
-</style>
+<style lang="scss"></style>
