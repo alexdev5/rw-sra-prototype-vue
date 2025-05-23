@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia'
 import { reactive, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { RouteName } from '@/router'
 
 export const useAppStore = defineStore('app', () => {
+    const router = useRouter()
+
     const state = reactive({
         isAuth: true,
     })
@@ -12,8 +16,9 @@ export const useAppStore = defineStore('app', () => {
 
     watch(
         () => state.isAuth,
-        () => {
+        async () => {
             handlePageEvent()
+            await router.push(RouteName.Home)
         }
     )
 

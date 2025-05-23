@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { useHead } from '@vueuse/head'
 
 export enum RouteName {
-    Home = 'home',
+    Home = '/',
     Page_1 = 'page-1',
     Page_2 = 'page-2',
     Page_3 = 'page-3',

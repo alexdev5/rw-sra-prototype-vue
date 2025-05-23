@@ -19,7 +19,7 @@ const store = useCategoriesStore()
 </script>
 
 <style lang="scss">
-.app-card-categories {
+div.app-card-categories {
     .app-card {
         background: #dfe9f1;
         border-color: #dfe9f1 !important;

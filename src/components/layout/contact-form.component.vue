@@ -1,6 +1,6 @@
 <template>
     <div class="app-contact-form">
-        <h2>Напишіть нам</h2>
+        <h2 v-if="!titleHidden">Напишіть нам</h2>
         <div class="app-contact-form-form">
             <label>
                 Ім'я
@@ -21,6 +21,10 @@
 
 <script lang="ts" setup>
 import AppBtn from '@/components/ui/app-btn.component.vue'
+
+defineProps<{
+    titleHidden?: boolean
+}>()
 </script>
 
 <style lang="scss">

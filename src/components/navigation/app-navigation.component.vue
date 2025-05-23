@@ -42,7 +42,6 @@ const store = useAppStore()
 const guestRoutes = computed(() => {
     return [
         { name: RouteName.Home, label: 'Головна' },
-        { name: RouteName.Page_3, label: 'Користувачеві' },
         { name: RouteName.Page_2, label: 'Про сервіс' },
         { name: RouteName.Page_1, label: 'Контикти' },
     ]
