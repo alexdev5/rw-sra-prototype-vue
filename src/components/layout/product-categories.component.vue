@@ -1,6 +1,10 @@
 <template>
     <div class="app-card-wrapper grid gap-32 app-card-categories">
-        <div class="app-card" v-for="category in store.categories">
+        <div
+            class="app-card"
+            v-for="category in categories"
+            @click="goToCategory(category.id)"
+        >
             <h2 class="mb-8">{{ category.name }}</h2>
             <p class="description">{{ category.description }}</p>
             <ul>
@@ -14,8 +18,28 @@
 
 <script lang="ts" setup>
 import { useCategoriesStore } from '@/stores'
+import { useRouter } from 'vue-router'
+import { RouteName } from '@/router'
+import { computed } from 'vue'
+import type { Category } from '@/stores/categories.store.ts'
+
+const props = defineProps<{
+    records?: Category[]
+}>()
 
 const store = useCategoriesStore()
+const router = useRouter()
+
+const categories = computed(() =>
+    props.records?.length ? props.records : store.categories
+)
+
+function goToCategory(id: number) {
+    router.push({
+        name: RouteName.Category,
+        params: { id },
+    })
+}
 </script>
 
 <style lang="scss">

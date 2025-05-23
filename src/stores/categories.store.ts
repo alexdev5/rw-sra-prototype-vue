@@ -1,5 +1,12 @@
 import { defineStore } from 'pinia'
 
+export interface Category {
+    id: number
+    name: string
+    description: string
+    productsName: string[]
+}
+
 export const useCategoriesStore = defineStore('categories', () => {
     const categories = [
         {
@@ -61,7 +68,7 @@ export const useCategoriesStore = defineStore('categories', () => {
                 'дієтичне/дитяче харчування',
             ],
         },
-    ]
+    ] as Category[]
 
     return {
         categories,

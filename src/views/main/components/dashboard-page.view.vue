@@ -41,8 +41,3 @@ import { useAppStore } from '@/app.store.ts'
 
 const store = useAppStore()
 </script>
-
-<style lang="scss">
-.dashboard-page {
-}
-</style>

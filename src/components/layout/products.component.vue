@@ -2,8 +2,8 @@
     <div class="app-card-wrapper grid gap-32 app-card-products">
         <div
             class="app-card"
-            v-for="product in store.products"
-            @click="selectProduct(product.id)"
+            v-for="product in products"
+            @click="goToProduct(product.id)"
         >
             <h2 class="mb-8">{{ product.name }}</h2>
             <p class="description">- {{ product.categoryName }}</p>
@@ -13,12 +13,27 @@
 
 <script lang="ts" setup>
 import { useProductsStore } from '@/stores'
+import { computed } from 'vue'
+import type { Product } from '@/stores/products.store.ts'
+import { RouteName } from '@/router'
+import { useRouter } from 'vue-router'
 
-const emit = defineEmits(['selected'])
+const props = defineProps<{
+    records?: Product[]
+}>()
+
+const router = useRouter()
 const store = useProductsStore()
 
-function selectProduct(id: number) {
-    emit('selected', id)
+const products = computed(() =>
+    props.records?.length ? props.records : store.products
+)
+
+function goToProduct(id: number) {
+    router.push({
+        name: RouteName.Product,
+        params: { id },
+    })
 }
 </script>
 

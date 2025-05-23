@@ -37,21 +37,6 @@ defineProps<{
         gap: 8px;
     }
 
-    textarea {
-        width: 100%;
-        border: 1px solid #e0e0e0;
-        border-radius: 6px;
-        font-size: 18px;
-        color: #606060;
-        font-family: 'Open Sans', sans-serif;
-        -moz-appearance: none;
-        appearance: none;
-        -webkit-appearance: none;
-        padding: 12px 20px;
-        height: 150px;
-        resize: none;
-    }
-
     .app-contact-form-form {
         display: grid;
         gap: 32px;

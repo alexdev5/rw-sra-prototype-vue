@@ -28,13 +28,3 @@
 	}
 }
 
-.app-card-wrapper {
-	grid-template-columns: repeat(auto-fit, 400px);
-
-	.app-card {
-		background: #fff;
-		padding: 20px;
-		border: 1px solid #e0e0e0;
-		border-radius: 6px;
-	}
-}
