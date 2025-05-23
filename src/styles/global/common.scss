@@ -59,6 +59,10 @@
 	margin-bottom: 16px;
 }
 
+.mb-24 {
+	margin-bottom: 24px;
+}
+
 button {
 	border: 1px solid var(--app-color-p-80);
 	padding: 8px;
@@ -165,4 +169,23 @@ tfoot td {
 	margin-inline: auto;
 	max-width: 1400px;
 	padding-inline: 16px;
+}
+
+.container-xl {
+	max-width: 1000px;
+}
+
+.container-md {
+	max-width: 900px;
+}
+
+.delimiter-vertical {
+	width: 1px;
+	border: 1px solid #E0E0E0;
+	height: 100%;
+	min-height: 23px;
+}
+
+.ta-center {
+	text-align: center;
 }

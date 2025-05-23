@@ -27,25 +27,25 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/page-2',
         name: RouteName.Page_2,
-        meta: { title: 'Сторінка 2' },
+        meta: { title: 'Про сервіс' },
         component: () => import('@/views/page-2/page-2.view.vue'),
     },
     {
         path: '/page-3',
         name: RouteName.Page_3,
-        meta: { title: 'Сторінка 3' },
+        meta: { title: 'Користувачеві' },
         component: () => import('@/views/page-3/page-3.view.vue'),
     },
     {
         path: '/page-4',
         name: RouteName.Page_4,
-        meta: { title: 'Сторінка 4' },
+        meta: { title: 'Категорії' },
         component: () => import('@/views/page-4/page-4.view.vue'),
     },
     {
         path: '/page-5',
         name: RouteName.Page_5,
-        meta: { title: 'Сторінка 5' },
+        meta: { title: 'Продукти' },
         component: () => import('@/views/page-5/page-5.view.vue'),
     },
 ]

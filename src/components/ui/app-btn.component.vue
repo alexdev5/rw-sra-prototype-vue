@@ -10,12 +10,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue'
+import { computed } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
 
 const props = withDefaults(
     defineProps<{
-        size?: 'xl' | 'md'
+        size?: 'xl' | 'md' | 'sm'
         outlined?: boolean
         to?: RouteLocationRaw
         url?: string
@@ -24,8 +24,6 @@ const props = withDefaults(
         size: 'md',
     }
 )
-
-const attrs = useAttrs()
 
 const component = computed(() => {
     if (props.to) return 'router-link'
@@ -43,7 +41,6 @@ const classes = computed(() => ({
 .app-btn {
     background: var(--app-color-p-40);
     border-radius: 6px;
-    min-width: 150px;
     color: #fff;
     border: 1px solid var(--app-color-p-40);
     text-decoration: none;
@@ -51,7 +48,7 @@ const classes = computed(() => ({
     align-items: center;
     justify-content: center;
 
-    &:not(.size-xl) {
+    &:not(.size-xl, .size-sm) {
         block-size: 40px;
         font-size: 0.9rem;
     }
@@ -75,6 +72,13 @@ const classes = computed(() => ({
         block-size: 56px;
         padding-inline: 24px;
         font-size: 1.1rem;
+        min-width: 150px;
+    }
+
+    &.size-sm {
+        block-size: 32px;
+        padding-inline: 16px;
+        font-size: 0.9rem;
     }
 }
 </style>

@@ -8,13 +8,21 @@
                     <RouterLink
                         :to="{ name: route.name }"
                         class="nav-menu-item"
-                        v-if="!route.hidden"
                     >
                         {{ route.label }}
                     </RouterLink>
                 </template>
 
-                <a href="https://github.com/alexdev5" target="_blank"
+                <div class="delimiter-vertical"></div>
+
+                <AppBtn size="sm" outlined @click="store.toggleLogin()">
+                    {{ store.state.isAuth ? 'Logout' : 'Login' }}
+                </AppBtn>
+
+                <a
+                    href="https://github.com/alexdev5"
+                    target="_blank"
+                    class="link-github"
                     >github.com</a
                 >
             </div>
@@ -24,10 +32,14 @@
 
 <script lang="ts" setup>
 import AppLogo from '@/components/layout/logo.component.vue'
+import AppBtn from '@/components/ui/app-btn.component.vue'
 import { RouteName } from '@/router'
 import { computed } from 'vue'
+import { useAppStore } from '@/app.store.ts'
 
-const routes = computed(() => {
+const store = useAppStore()
+
+const guestRoutes = computed(() => {
     return [
         { name: RouteName.Home, label: 'Головна' },
         { name: RouteName.Page_3, label: 'Користувачеві' },
@@ -35,6 +47,19 @@ const routes = computed(() => {
         { name: RouteName.Page_1, label: 'Контикти' },
     ]
 })
+const authRoutes = computed(() => {
+    if (!store.state.isAuth) return []
+
+    return [
+        { name: RouteName.Home, label: 'Головна' },
+        { name: RouteName.Page_4, label: 'Категорії' },
+        { name: RouteName.Page_5, label: 'Продукти' },
+    ]
+})
+
+const routes = computed(() =>
+    store.state.isAuth ? authRoutes.value : guestRoutes.value
+)
 </script>
 
 <style lang="scss">
@@ -59,6 +84,11 @@ const routes = computed(() => {
         display: flex;
         align-items: center;
         gap: 16px;
+    }
+
+    .link-github {
+        color: #606060;
+        font-weight: 400;
     }
 }
 
