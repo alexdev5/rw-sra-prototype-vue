@@ -42,8 +42,8 @@ const store = useAppStore()
 const guestRoutes = computed(() => {
     return [
         { name: RouteName.Home, label: 'Головна' },
-        { name: RouteName.Page_2, label: 'Про сервіс' },
-        { name: RouteName.Page_1, label: 'Контикти' },
+        { name: RouteName.About, label: 'Про сервіс' },
+        { name: RouteName.Contacts, label: 'Контикти' },
     ]
 })
 const authRoutes = computed(() => {
@@ -51,8 +51,8 @@ const authRoutes = computed(() => {
 
     return [
         { name: RouteName.Home, label: 'Головна' },
-        { name: RouteName.Page_4, label: 'Категорії' },
-        { name: RouteName.Page_5, label: 'Продукти' },
+        { name: RouteName.Categories, label: 'Категорії' },
+        { name: RouteName.Products, label: 'Продукти' },
     ]
 })
 

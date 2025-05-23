@@ -3,11 +3,12 @@ import { useHead } from '@vueuse/head'
 
 export enum RouteName {
     Home = '/',
-    Page_1 = 'page-1',
-    Page_2 = 'page-2',
-    Page_3 = 'page-3',
-    Page_4 = 'page-4',
-    Page_5 = 'page-5',
+    Contacts = 'contacts',
+    About = 'about',
+    Categories = 'categories',
+    Category = 'category',
+    Products = 'products',
+    Product = 'product',
     PageNotFound = 'page-not-found',
 }
 
@@ -19,34 +20,40 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/main/main.view.vue'),
     },
     {
-        path: '/page-1',
-        name: RouteName.Page_1,
+        path: '/contacts',
+        name: RouteName.Contacts,
         meta: { title: 'Контикти' },
-        component: () => import('@/views/page-1/page-1.view.vue'),
+        component: () => import('@/views/contacts/contacts.view.vue'),
     },
     {
-        path: '/page-2',
-        name: RouteName.Page_2,
+        path: '/about',
+        name: RouteName.About,
         meta: { title: 'Про сервіс' },
-        component: () => import('@/views/page-2/page-2.view.vue'),
+        component: () => import('@/views/about/about.view.vue'),
     },
     {
-        path: '/page-3',
-        name: RouteName.Page_3,
-        meta: { title: 'Користувачеві' },
-        component: () => import('@/views/page-3/page-3.view.vue'),
-    },
-    {
-        path: '/page-4',
-        name: RouteName.Page_4,
+        path: '/categories',
+        name: RouteName.Categories,
         meta: { title: 'Категорії' },
-        component: () => import('@/views/page-4/page-4.view.vue'),
+        component: () => import('@/views/categories/categories.view.vue'),
     },
     {
-        path: '/page-5',
-        name: RouteName.Page_5,
+        path: '/category/:id',
+        name: RouteName.Category,
+        meta: { title: 'Категоря' },
+        component: () => import('@/views/categories/category.view.vue'),
+    },
+    {
+        path: '/products',
+        name: RouteName.Products,
         meta: { title: 'Продукти' },
-        component: () => import('@/views/page-5/page-5.view.vue'),
+        component: () => import('@/views/products/products.view.vue'),
+    },
+    {
+        path: '/product/:id',
+        name: RouteName.Product,
+        meta: { title: 'Продукти' },
+        component: () => import('@/views/products/product.view.vue'),
     },
 ]
 

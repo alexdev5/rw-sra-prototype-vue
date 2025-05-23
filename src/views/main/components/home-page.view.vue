@@ -19,7 +19,7 @@
                         <AppBtn
                             size="xl"
                             outlined
-                            :to="{ name: RouteName.Page_2 }"
+                            :to="{ name: RouteName.About }"
                             >Докладніше
                         </AppBtn>
                     </div>
