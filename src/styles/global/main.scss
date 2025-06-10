@@ -18,7 +18,7 @@ section {
 }
 
 .app-card-wrapper {
-	grid-template-columns: repeat(auto-fit, 400px);
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 
 	.app-card {
 		background: #fff;
